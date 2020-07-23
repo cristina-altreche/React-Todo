@@ -1,4 +1,6 @@
 import React from "react";
+import Card from '@material-ui/core/Card';
+
 
 class TodoForm extends React.Component {
     constructor() {
@@ -31,6 +33,7 @@ class TodoForm extends React.Component {
   
       const { clearTodoFn } = this.props
       return (
+        <Card variant="outlined">
           <div className="form-div">
         <form onSubmit={this.handleSubmit}>
           <input
@@ -43,6 +46,7 @@ class TodoForm extends React.Component {
           <button onClick={clearTodoFn}>Clear</button>
         </form>
         </div>
+        </Card>
       );
     }
   }

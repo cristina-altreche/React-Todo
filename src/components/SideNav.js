@@ -133,7 +133,7 @@ function SideNav(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+            Todo App
           </Typography>
         </Toolbar>
       </AppBar>
