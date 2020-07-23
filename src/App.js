@@ -1,8 +1,9 @@
 import React from "react";
-import TodoList from "./components/TodoList";
-import TodoForm from "./components/TodoForm";
+// import TodoList from "./components/TodoList";
+// import TodoForm from "./components/TodoForm";
 import { BottomNav } from "./components/BottomNav";
-import './components/Todo.css'
+import  SideNav  from "./components/SideNav";
+import './sass/styles.scss'
 
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
@@ -68,10 +69,11 @@ export default class App extends React.Component {
     return (
       <div className="appContainer">
         <div className="header">
-          <h1>Todo Your ❤️ Out</h1>
-          <TodoForm addTaskFn={this.addTask} clearTodoFn={this.clearTodo} />
+         
+          {/* <TodoForm addTaskFn={this.addTask} clearTodoFn={this.clearTodo} /> */}
         </div>
-        <TodoList todos={this.state.todos} toggleTask={this.toggleTask} />
+        {/* <TodoList todos={this.state.todos} toggleTask={this.toggleTask} /> */}
+        <SideNav addTaskFn={this.addTask} clearTodoFn={this.clearTodo} todos={this.state.todos}  toggleTask={this.toggleTask}/>
         <BottomNav/>
       </div>
     );
