@@ -1,10 +1,13 @@
 .MuiCard-root {
-  height: 100px;
+  height: 100px; 
+  max-width: 600px;
+  
 
   form {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100px;
+    padding: 20px;
   }
 }

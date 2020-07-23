@@ -21,10 +21,12 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import TodoForm from './TodoForm'
 import TodoList from "./TodoList";
+import Switch from '@material-ui/core/Switch';
+import useDarkMode  from '../hooks/useDarkMode'
+
 
 
 const drawerWidth = 240;
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,6 +72,12 @@ function SideNav(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [darkMode, setDarkMode] = useDarkMode(false);
+  
+  const toggleMode = e => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -77,9 +85,9 @@ function SideNav(props) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      <div className={classes.toolbar}  />
       <Divider />
-      <List>
+      <List >
           <ListItem >
               <ListItemIcon><InboxIcon/></ListItemIcon>
               <ListItemText>Inbox</ListItemText>
@@ -100,15 +108,15 @@ function SideNav(props) {
       <Divider/>
       <List>
           <ListItem>
-              <ListItemIcon><div className="circles"></div></ListItemIcon>
+              <ListItemIcon><div className="circles" style={{backgroundColor: "dodgerblue"}}></div></ListItemIcon>
               <ListItemText>Finance</ListItemText>
           </ListItem>
           <ListItem>
-              <ListItemIcon><div className="circles"></div></ListItemIcon>
+              <ListItemIcon><div className="circles" style={{backgroundColor: "deepPink"}}></div></ListItemIcon>
               <ListItemText>Shopping</ListItemText>
           </ListItem>
           <ListItem>
-              <ListItemIcon><div className="circles"></div></ListItemIcon>
+              <ListItemIcon><div className="circles" style={{backgroundColor: "blueViolet"}}></div></ListItemIcon>
               <ListItemText>Study</ListItemText>
           </ListItem>
       </List>
@@ -135,6 +143,9 @@ function SideNav(props) {
           <Typography variant="h6" noWrap>
             Todo App
           </Typography>
+          <div className="dark-mode__toggle">
+          <Switch inputProps={{ 'aria-label': 'primary checkbox' }} />
+          </div>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
