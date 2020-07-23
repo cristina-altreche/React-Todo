@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+import { BottomNav } from "./components/BottomNav";
 import './components/Todo.css'
 
 // you will need a place to store your state in this component.
@@ -71,6 +72,7 @@ export default class App extends React.Component {
           <TodoForm addTaskFn={this.addTask} clearTodoFn={this.clearTodo} />
         </div>
         <TodoList todos={this.state.todos} toggleTask={this.toggleTask} />
+        <BottomNav/>
       </div>
     );
   }
