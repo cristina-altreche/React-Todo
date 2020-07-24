@@ -45,9 +45,9 @@ class TodoForm extends React.Component {
             value={this.state.todo}
             onChange={this.handleChanges}
           />
-          <div>
-          <Button variant="contained" type="submit" disableElevation>Add</Button>
-          <Button variant="contained" onClick={clearTodoFn} disableElevation>Clear</Button>
+          <div className="btn">
+          <Button style={{backgroundColor:"lightGreen"}} variant="contained" type="submit" disableElevation>Add</Button>
+          <Button style={{backgroundColor:"lightPink"}}  variant="contained" onClick={clearTodoFn} disableElevation>Clear</Button>
           </div>
         </form>
       </Card>

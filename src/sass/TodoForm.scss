@@ -9,5 +9,9 @@
     align-items: center;
     height: 100px;
     padding: 20px;
+
+    .MuiButton-root {
+      margin-left: 10px;
+    }
   }
 }

@@ -3,7 +3,7 @@ import Card from "@material-ui/core/Card";
 
 const Todo = (props) => {
   return (
-    <Card className="tasks">
+    <Card className="tasks"  variant="outlined">
       <div
         onClick={() => props.toggleTask(props.todo.id)}
         className={`todo${props.todo.completed ? " completed" : ""}`}
