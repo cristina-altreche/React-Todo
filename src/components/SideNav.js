@@ -54,17 +54,12 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    // backgroundColor: '#313843'
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-//   circles: {
-//     backgroundColor: 'blue',
-//     borderRadius: '50%',
-//     width: '20px',
-//     height: '20px',
-//   }
 }));
 
 function SideNav(props) {
@@ -84,7 +79,7 @@ function SideNav(props) {
   };
 
   const drawer = (
-    <div>
+    <div >
       <div className={classes.toolbar}  />
       <Divider />
       <List >
@@ -144,7 +139,8 @@ function SideNav(props) {
             Todo App
           </Typography>
           <div className="dark-mode__toggle">
-          <Switch inputProps={{ 'aria-label': 'primary checkbox' }} />
+          <Switch  inputProps={{ 'aria-label': 'primary checkbox' }}  onClick={toggleMode}
+          className={darkMode ? 'toggle toggled' : 'toggle'} />
           </div>
         </Toolbar>
       </AppBar>

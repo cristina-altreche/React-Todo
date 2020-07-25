@@ -2,8 +2,10 @@ import React from "react";
 // import TodoList from "./components/TodoList";
 // import TodoForm from "./components/TodoForm";
 import { BottomNav } from "./components/BottomNav";
-import  SideNav  from "./components/SideNav";
-import './sass/styles.scss'
+import SideNav from "./components/SideNav";
+import "./sass/styles.scss";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { Paper } from "@material-ui/core";
 
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
@@ -24,11 +26,17 @@ export default class App extends React.Component {
           completed: false,
         },
       ],
+
+      theme: createMuiTheme({
+        palette: {
+          type: "dark"
+        }
+      })
     };
   }
 
   //Add to state new tasks here
-  addTask = todoName => {
+  addTask = (todoName) => {
     // console.log(e.target.value)
     const newTask = {
       task: todoName,
@@ -41,25 +49,24 @@ export default class App extends React.Component {
   };
 
   //Clear completed todo's
-  clearTodo = e => {
-    e.preventDefault()
-    let todos = this.state.todos.filter(todo => !todo.completed)
+  clearTodo = (e) => {
+    e.preventDefault();
+    let todos = this.state.todos.filter((todo) => !todo.completed);
 
-    this.setState({todos})
-  }
-
+    this.setState({ todos });
+  };
 
   //Toggle Items when clicked
-  toggleTask = todoId => {
+  toggleTask = (todoId) => {
     this.setState({
       todos: this.state.todos.map((todo) => {
         if (todo.id === todoId) {
           return {
             ...todo,
-            completed: !todo.completed
-          }
+            completed: !todo.completed,
+          };
         } else {
-          return todo
+          return todo;
         }
       }),
     });
@@ -67,15 +74,23 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="appContainer">
-        <div className="header">
-         
-          {/* <TodoForm addTaskFn={this.addTask} clearTodoFn={this.clearTodo} /> */}
-        </div>
-        {/* <TodoList todos={this.state.todos} toggleTask={this.toggleTask} /> */}
-        <SideNav addTaskFn={this.addTask} clearTodoFn={this.clearTodo} todos={this.state.todos}  toggleTask={this.toggleTask}/>
-        <BottomNav/>
-      </div>
+      <ThemeProvider theme={this.state.theme}>
+        <Paper>
+          <div className="light-mode">
+            <div className="header">
+              {/* <TodoForm addTaskFn={this.addTask} clearTodoFn={this.clearTodo} /> */}
+            </div>
+            {/* <TodoList todos={this.state.todos} toggleTask={this.toggleTask} /> */}
+            <SideNav
+              addTaskFn={this.addTask}
+              clearTodoFn={this.clearTodo}
+              todos={this.state.todos}
+              toggleTask={this.toggleTask}
+            />
+            <BottomNav />
+          </div>
+        </Paper>
+      </ThemeProvider>
     );
   }
 }

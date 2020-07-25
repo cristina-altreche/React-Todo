@@ -2,6 +2,8 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import AddIcon from '@material-ui/icons/Add';
 
 
 class TodoForm extends React.Component {
@@ -46,8 +48,8 @@ class TodoForm extends React.Component {
             onChange={this.handleChanges}
           />
           <div className="btn">
-          <Button style={{backgroundColor:"lightGreen"}} variant="contained" type="submit" disableElevation>Add</Button>
-          <Button style={{backgroundColor:"lightPink"}}  variant="contained" onClick={clearTodoFn} disableElevation>Clear</Button>
+          <Button style={{backgroundColor:"#00dd76"}} variant="contained" type="submit" disableElevation><AddIcon/></Button>
+          <Button style={{backgroundColor:"#057be0" }}  variant="contained" onClick={clearTodoFn} disableElevation><DeleteOutlineIcon/></Button>
           </div>
         </form>
       </Card>

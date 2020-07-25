@@ -1,19 +1,27 @@
 .MuiToolbar-root {
-    background: linear-gradient(to right, #00f260, #0575e6);
+  background: linear-gradient(to right, #00f260, #0575e6);
 
-    .circles {
+  .circles {
     border-radius: 50%;
     width: 18px;
     height: 18px;
   }
+}
 
-  .dark-mode {
-    color: #fff;
-    background-color: #313843;
+.light-mode {
+  color: #fff;
   
-    // .navbar {
-    //   background-color: #1F2022;
-    //   border: none;
-    // }
+}
+
+.dark-mode {
+  background-color:#1a1919 ;
+  color: #999;
+
+  .dark-mode .toolbar {
+    background-color:#1b2938 ;
   }
-  }
+}
+
+.MuiList-root {
+  cursor: pointer;
+}
